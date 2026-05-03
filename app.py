@@ -1,4 +1,6 @@
 import streamlit as st
+import numpy as np
+from scipy.interpolate import interp1d
 
 st.set_page_config(
     page_title="NEET 2026 Predictor",
@@ -20,9 +22,6 @@ def add_bg_from_url():
      )
 
 add_bg_from_url()
-import streamlit as st
-import numpy as np
-from scipy.interpolate import interp1d
 
 # Data
 marks = np.array([720, 716, 715, 712, 711, 710, 708, 707, 700, 690, 680, 675, 670, 665, 660, 655, 650, 640, 630, 620, 610, 600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100, 50, 25, 10, 0])
