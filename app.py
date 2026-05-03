@@ -46,23 +46,35 @@ if st.button("Predict Rank"):
 
     st.success(f"Projected Rank for {name}: {result}")
     
+import streamlit as st
 import urllib.parse
 
-# 1. Prepare the share text
-share_text = f"{name}'s projected NEET 2026 Rank for {score} marks is {result}. Predict yours here: [Your_App_Link]"
-encoded_text = urllib.parse.quote(share_text)
+# ... (your data and logic up here) ...
 
-# 2. Create columns for side-by-side buttons
-col1, col2, col3 = st.columns(3)
+if st.button("Predict Rank"):
+    # 1. Calculate the rank
+    if score >= 716:
+        result = "1 - 11"
+    elif score == 715:
+        result = "7 - 17"
+    else:
+        pred_rank = int(np.exp(f_interp(score)))
+        result = f"{max(1, int(pred_rank * 0.95))} - {int(pred_rank * 1.05)}"
 
-with col1:
-    # WhatsApp (Works on Mobile and Desktop)
-    st.link_button("📲 WhatsApp", f"https://wa.me{encoded_text}")
+    # 2. Display the result
+    st.success(f"Projected Rank for {name}: {result}")
 
-with col2:
-    # X (Twitter)
-    st.link_button("🐦 Share on X", f"https://twitter.com{encoded_text}")
+    # 3. NOW create the share buttons (Inside this block!)
+    share_text = f"{name}'s projected NEET 2026 Rank for {score} marks is {result}. Predict yours here: https://streamlit.app"
+    encoded_text = urllib.parse.quote(share_text)
 
-with col3:
-    # Email
-    st.link_button("✉️ Email", f"mailto:?subject=NEET 2026 Rank Prediction&body={encoded_text}")
+    st.write("---") # Add a separator line
+    st.subheader("Share your result:")
+    
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.link_button("📲 WhatsApp", f"https://wa.me{encoded_text}")
+    with col2:
+        st.link_button("🐦 Share on X", f"https://twitter.com{encoded_text}")
+    with col3:
+        st.link_button("✉️ Email", f"mailto:?subject=NEET Rank&body={encoded_text}")
