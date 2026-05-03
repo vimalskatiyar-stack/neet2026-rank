@@ -1,4 +1,26 @@
 import streamlit as st
+
+st.set_page_config(
+    page_title="NEET 2026 Predictor",
+    page_icon="🎓", # Can be an emoji or an image URL
+    layout="centered"
+)
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://drive.google.com/file/d/1yxBJ1RG_nZIcyV886FssI-QaVpN7DfZd/view?usp=sharing");
+             background-attachment: fixed;
+             background-size: cover;
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+add_bg_from_url()
+import streamlit as st
 import numpy as np
 from scipy.interpolate import interp1d
 
