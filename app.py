@@ -15,10 +15,10 @@ f_interp = interp1d(marks, log_ranks, kind='linear', fill_value="extrapolate")
 
 # 3. UI Elements
 st.title("🎓 NEET 2026 Rank Predictor")
-st.write("Enter your details below to estimate your rank.")
+st.write("Please provide the reactants & reactions conditions to get the distillate!")
 
-name = st.text_input("Enter candidate's name:")
-score = st.number_input("Enter your NEET marks (0-720):", min_value=0, max_value=720, step=1)
+name = st.text_input("What your teachers call you?")
+score = st.number_input("As per keys available, your marks NEET marks (0-720):", min_value=0, max_value=720, step=1)
 
 # 4. Logic Block (Everything indented exactly 4 spaces under the 'if')
 if st.button("Predict Rank"):
@@ -43,12 +43,22 @@ if st.button("Predict Rank"):
         share_text = f"{name}'s projected NEET 2026 Rank for {score} marks is {result}. Predict yours here: [Your App Link]"
         encoded_text = urllib.parse.quote(share_text)
 
-        st.divider()
-        st.subheader("Share with friends:")
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.link_button("📲 WhatsApp", f"https://wa.me{encoded_text}")
-        with col2:
-            st.link_button("🐦 Share on X", f"https://twitter.com{encoded_text}")
+       share_msg = f"{name}'s NEET 2026 Rank for {score} marks is {result}. Predict yours: [Your_App_URL]"
+encoded_msg = urllib.parse.quote(share_msg)
+
+st.divider()
+st.subheader("Share Your Result")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    # WhatsApp 'Send' Intent
+    whatsapp_url = f"https://whatsapp.com{encoded_msg}"
+    st.link_button("📲 Send to WhatsApp", whatsapp_url)
+
+with col2:
+    # X (Twitter) 'Intent' Link
+    x_url = f"https://twitter.com{encoded_msg}"
+    st.link_button("🐦 Post on X", x_url)
         with col3:
             st.link_button("✉️ Email", f"mailto:?subject=NEET Rank&body={encoded_text}")
