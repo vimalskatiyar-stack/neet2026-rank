@@ -36,29 +36,18 @@ if st.button("Predict Rank"):
             upper = int(pred_rank * 1.05)
             result = f"{lower} - {upper}"
 
-        # Display result
+        # Display result (This line should have 8 spaces in front)
         st.success(f"Projected Rank for {name}: {result}")
 
-        # Sharing logic
-        share_text = f"{name}'s projected NEET 2026 Rank for {score} marks is {result}. Predict yours here: [Your App Link]"
-        encoded_text = urllib.parse.quote(share_text)
+        # Sharing logic (MUST have the same 8 spaces in front)
+        share_msg = f"{name}'s NEET 2026 Rank for {score} marks is {result}. Predict yours: [Your_URL]"
+        encoded_msg = urllib.parse.quote(share_msg)
 
-       share_msg = f"{name}'s NEET 2026 Rank for {score} marks is {result}. Predict yours: [Your_App_URL]"
-encoded_msg = urllib.parse.quote(share_msg)
-
-st.divider()
-st.subheader("Share Your Result")
-
-col1, col2 = st.columns(2)
-
-with col1:
-    # WhatsApp 'Send' Intent
-    whatsapp_url = f"https://whatsapp.com{encoded_msg}"
-    st.link_button("📲 Send to WhatsApp", whatsapp_url)
-
-with col2:
-    # X (Twitter) 'Intent' Link
-    x_url = f"https://twitter.com{encoded_msg}"
-    st.link_button("🐦 Post on X", x_url)
+        st.divider()
+        col1, col2 = st.columns(2)
+        with col1:
+            st.link_button("📲 WhatsApp", f"https://whatsapp.com{encoded_msg}")
+        with col2:
+            st.link_button("🐦 Post on X", f"https://twitter.com{encoded_msg}")
         with col3:
             st.link_button("✉️ Email", f"mailto:?subject=NEET Rank&body={encoded_text}")
