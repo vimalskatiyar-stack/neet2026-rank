@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#007bff"     # The color of your buttons
+backgroundColor = "#ffffff"  # Main background color (if no image)
+secondaryBackgroundColor = "#f0f2f6" # Color of the input boxes
+textColor = "#31333F"        # Main text color
+font = "sans serif"
