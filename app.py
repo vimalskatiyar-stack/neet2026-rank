@@ -46,6 +46,23 @@ if st.button("Predict Rank"):
 
     st.success(f"Projected Rank for {name}: {result}")
     
-    # WhatsApp Share Link
-    share_text = f"{name}'s projected NEET 2026 Rank for {score} marks is {result}."
-    st.link_button("Share on WhatsApp", f"https://wa.me{share_text}")
+import urllib.parse
+
+# 1. Prepare the share text
+share_text = f"{name}'s projected NEET 2026 Rank for {score} marks is {result}. Predict yours here: [Your_App_Link]"
+encoded_text = urllib.parse.quote(share_text)
+
+# 2. Create columns for side-by-side buttons
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    # WhatsApp (Works on Mobile and Desktop)
+    st.link_button("📲 WhatsApp", f"https://wa.me{encoded_text}")
+
+with col2:
+    # X (Twitter)
+    st.link_button("🐦 Share on X", f"https://twitter.com{encoded_text}")
+
+with col3:
+    # Email
+    st.link_button("✉️ Email", f"mailto:?subject=NEET 2026 Rank Prediction&body={encoded_text}")
