@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 from scipy.interpolate import interp1d
+import urllib.parse
 
 st.set_page_config(
     page_title="NEET 2026 Predictor",
@@ -35,19 +36,11 @@ st.title("--- NEET 2026 Rank Predictor ---")
 name = st.text_input("Enter candidate's name:")
 score = st.number_input("Enter your NEET marks (0-720):", min_value=0, max_value=720, step=1)
 
-if st.button("Predict Rank"):
-    if score >= 716:
-        result = "1 - 11"
-    elif score == 715:
-        result = "7 - 17"
-    else:
-        pred_rank = int(np.exp(f_interp(score)))
-        result = f"{max(1, int(pred_rank * 0.95))} - {int(pred_rank * 1.05)}"
 
     st.success(f"Projected Rank for {name}: {result}")
     
 import streamlit as st
-import urllib.parse
+
 
 # ... (your data and logic up here) ...
 
