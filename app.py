@@ -1,4 +1,4 @@
-pythonimport streamlit as st
+import streamlit as st
 import numpy as np
 from scipy.interpolate import interp1d
 
