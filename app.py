@@ -38,16 +38,3 @@ if st.button("Predict Rank"):
 
         # Display result (This line should have 8 spaces in front)
         st.success(f"Projected Rank for {name}: {result}")
-
-        # Sharing logic (MUST have the same 8 spaces in front)
-        share_msg = f"{name}'s NEET 2026 Rank for {score} marks is {result}. Predict yours: [Your_URL]"
-        encoded_msg = urllib.parse.quote(share_msg)
-
-        st.divider()
-        col1, col2 = st.columns(2)
-        with col1:
-            st.link_button("📲 WhatsApp", f"https://whatsapp.com{encoded_msg}")
-        with col2:
-            st.link_button("🐦 Post on X", f"https://twitter.com{encoded_msg}")
-        with col3:
-            st.link_button("✉️ Email", f"mailto:?subject=NEET Rank&body={encoded_text}")
