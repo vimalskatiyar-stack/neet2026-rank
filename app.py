@@ -3,6 +3,22 @@ import numpy as np
 from scipy.interpolate import interp1d
 import urllib.parse
 
+def is_unacceptable(score, total_q=180):
+    max_score = total_q * 4
+    min_score = -total_q
+    
+    if score > max_score or score < min_score:
+        return "<unacceptable marks>"
+    
+    # Check if a valid combination of Correct (C) and Incorrect (I) exists
+    # S = 4C - I  AND  C + I <= total_q
+    for c in range(total_q + 1):
+        i = 4 * c - score
+        if i >= 0 and (c + i) <= total_q:
+            return "<valid>"
+            
+    return "<unacceptable marks>"
+
 # 1. Page Configuration
 st.set_page_config(page_title="NEET 2026 Predictor", page_icon="🎓")
 
