@@ -56,7 +56,7 @@ if st.button("Predict Rank"):
         elif result_val <= 1000:
             st.balloons()
             st.markdown(f"### 🎉 Outstanding Rank, {name}!")
-            st.write("Strong chance for MAMC, VMMC, JIPMER, or top-tier AIIMS!")
+            st.write("Strong chance for **MAMC Delhi, VMMC Delhi, JIPMER Pondicherry, or other best rated second generation AIIMS!**")
         elif result_val <= 10000:
             st.balloons()
             st.markdown(f"### 🎉 Wonderful Rank, {name}!")
