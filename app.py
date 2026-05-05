@@ -31,8 +31,10 @@ if st.button("Predict Rank"):
     if not name:
         st.warning("Please enter a name first!")
     elif is_unacceptable(score):
-        st.error(f"⚠️ **{score} is an impossible score.**")
-        st.info("In NEET (+4/-1), scores like 719, 718, 717, and 714 cannot be achieved.")
+        st.error(f"⚠️ **{score} is an impossible score. You must re-check your calculations. Use calculator if needed, and come back here again to proceed. Thanks.**")
+        st.info("**Why?** In NEET, you get **+4** for correct and **-1** for incorrect. 
+            Because every wrong answer drops your potential score by **5 points** (4 marks not gained + 1 mark deducted), 
+            scores like **719, 718, 717, and 714** cannot be achieved mathematically.")
     else:
         # Rank Logic
         if score >= 716: 
