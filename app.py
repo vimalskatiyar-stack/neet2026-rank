@@ -49,13 +49,37 @@ if st.button("Predict Rank"):
         st.success(f"### Projected Rank for {name}: **{result}**")
 
         # 2. STYLE: Congratulations Logic
-        if result_val < 25000:
-            st.balloons()  # Adds a fun animation
-            st.markdown(f"### 🎉 Congratulations, {name}!")
-            st.write("You are currently in the range for a **Government Medical College (GMC)** seat. Keep up the momentum!")
-        elif result_val < 50000:
-            st.write("✨ **Great effort!** You have a strong chance for Semi-Government or top Private colleges.")
+        if result_val <= 50:
+    st.balloons()
+    st.markdown(f"### 🏆 Elite Achievement, {name}!")
+    st.write("You are in the top tier! You ARE going to **AIIMS New Delhi!!** or other premier central institutes.")
 
+elif result_val <= 1000:
+    st.balloons()
+    st.markdown(f"### 🎉 Outstanding Rank, {name}!")
+    st.write("You are in the top tier! You have a strong chance for MAMC, Delhi; VMMC, Delhi; JIPMER; **the best of the second generation AIIMS (like Jodhpur or Bhubaneshwar, among others)** or other premier central institutes or the other best college of your state/city")
+
+elif result_val <= 10000:
+    st.balloons()
+    st.markdown(f"### 🎉 Wonderful Rank, {name}!")
+    st.write("You are likely eligible for **Top-Rated State Medical Colleges** and established Government institutions.")
+
+elif result_val <= 27000:
+    st.snow() # A different subtle animation
+    st.markdown(f"### 🎊 Congratulations, {name}!")
+    st.write("You are in the range for a **Government Medical College (GMC)** seat via the All India Quota (AIQ).")
+
+elif result_val <= 40000:
+    st.write(f"✨ **Well done, {name}!**")
+    st.write("You have a strong chance for **Newer Government Colleges** (State Quota) or premier **Semi-Government** institutions.")
+
+elif result_val <= 100000:
+    st.write(f"👍 **Good Effort, {name}!**")
+    st.write("You are eligible for many reputed **Private Medical Colleges**, BDS, or BAMS programs.")
+
+else:
+    st.write(f"📚 **Keep Pushing, {name}!**")
+    st.write("Focus on your next steps. You may qualify for private institutions or specialized medical allied fields.")
         # 3. GENERATE DOWNLOADABLE TEXT
         report_text = f"NEET 2026 Rank Prediction\n--------------------------\nName: {name}\nMarks: {score}\nPredicted Rank: {result}"
         
