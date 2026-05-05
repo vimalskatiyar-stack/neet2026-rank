@@ -31,7 +31,7 @@ f_interp = interp1d(marks, log_ranks, kind='linear', fill_value="extrapolate")
 
 # 3. UI Elements
 st.title("🎓 NEET 2026 Rank Predictor")
-st.write("Please provide the reactants & reactions conditions to get the distillate!")
+st.write("Please provide the reactants (name) & reaction conditions (marks) to get the distillate (rank)!")
 
 name = st.text_input("What your teachers call you?")
 score = st.number_input("As per keys available, your marks in NEET exam (0-720):", min_value=0, max_value=720, step=1)
