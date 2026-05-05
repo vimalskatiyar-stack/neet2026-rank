@@ -34,7 +34,7 @@ st.title("🎓 NEET 2026 Rank Predictor")
 st.write("Please provide the reactants & reactions conditions to get the distillate!")
 
 name = st.text_input("What your teachers call you?")
-score = st.number_input("As per keys available, your marks NEET marks (0-720):", min_value=0, max_value=720, step=1)
+score = st.number_input("As per keys available, your marks in NEET exam (0-720):", min_value=0, max_value=720, step=1)
 
 # 4. Logic Block (Everything indented exactly 4 spaces under the 'if')
 if st.button("Predict Rank"):
