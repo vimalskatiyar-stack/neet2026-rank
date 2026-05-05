@@ -22,6 +22,7 @@ f_interp = interp1d(marks, np.log(ranks), kind='linear', fill_value="extrapolate
 # 3. UI CONFIG
 st.set_page_config(page_title="NEET 2026 Predictor", page_icon="🎓")
 st.title("🎓 NEET 2026 Rank Predictor")
+st.write("Please provide the reactants (name) & reaction conditions (marks) to get the distillate (rank)!")
 
 name = st.text_input("What your teachers call you?")
 score = st.number_input("Your marks (0-720):", min_value=0, max_value=720, step=1)
