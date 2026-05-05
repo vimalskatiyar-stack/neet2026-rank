@@ -36,7 +36,7 @@ if st.button("Predict Rank"):
         st.warning("Please enter a name first!")
     elif is_unacceptable(score):
         # CUSTOM ERROR MESSAGE
-        st.error(f"⚠️ **{score} is an impossible score.**")
+        st.error(f"⚠️ **{score} is an impossible score. You must check your calculations| Use calculator if needed, and come back here again to proceed**")
         st.info("""
             **Why?** In NEET, you get **+4** for correct and **-1** for incorrect. 
             Because every wrong answer drops your potential score by **5 points** (4 marks not gained + 1 mark deducted), 
