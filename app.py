@@ -49,7 +49,7 @@ if st.button("Predict Rank"):
         st.success(f"### Projected Rank for {name}: **{result}**")
 
         # 2. STYLE: Congratulations Logic
-        if result_val <= 50:
+if result_val <= 50:
     st.balloons()
     st.markdown(f"### 🏆 Elite Achievement, {name}!")
     st.write("You are in the top tier! You ARE going to **AIIMS New Delhi!!** or other premier central institutes.")
